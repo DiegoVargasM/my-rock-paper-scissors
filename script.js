@@ -15,8 +15,16 @@ function playRound() {
 //Get the input from the player
 function playerChoice() {
     let input = prompt("Choose Rock, Paper, or Scissors");
+    while (input == null) {
+        input = prompt("Choose Rock, Paper, or Scissors");
+      }
     //Make the input lower case to standardize comparisons
     input = input.toLowerCase();
+    //Check if the input is valid or not with a function
+    let check = validateInput(input);
+    while (check == false) {
+        prompt("Please, check your option or spelling.")
+    }
     console.log(input)
 }
 
@@ -25,4 +33,8 @@ function computerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
+//Create a function to validate whether user input is correct or not
+function validateInput(choice) {
+    return choices.includes(choice);
+}
 game();
