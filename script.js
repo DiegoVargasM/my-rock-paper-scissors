@@ -74,7 +74,11 @@ function logRound(playerChoice, computerChoice, winner, round) {
     console.log("Round:", round);
     console.log("Player Chose:", playerChoice);
     console.log("Computer Chose:", computerChoice);
-    console.log(winner, "Won the Round");
+    if (winner == "Player" || winner == "Computer") {
+        console.log(winner, "Won the Round");
+    } else {
+        console.log(`It's a ${winner}!`)
+    }
     console.log("-------------------------------");
 }
 game();
